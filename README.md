@@ -18,4 +18,4 @@ This software is provided free of charge under the MIT License as described in t
 ----------------------------------------------
 Credits
 ----------------------------------------------
-Lead Developer - Daniel J. Bechtel (db1815)
+Lead Developer - Daniel J. Bechtel (djb1815)
