@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import Reservation
 
 # Create your views here.
 
@@ -19,3 +20,6 @@ def calendar(request):
     }
     return render(request, "schedule/calendar.html", custom_variables)
 
+def view_table(request):
+    output = Reservation.objects.all()
+    return render(request, 'calendar.html', {'output': output})
