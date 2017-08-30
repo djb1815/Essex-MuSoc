@@ -8,18 +8,26 @@
         <table class="table table-responsive table-striped">
         	<thead class="thead-inverse">
 	        	<tr>
+	        		<th>Booked By</th>
 	        		<th>Band Name</th>
 	        		<th>Time Slot</th>
+	        		<th>Time Booked</th>
 	        	</tr>
 	        </thead>
 	        <tbody>
 	        	{% for field in output %}
 	        	<tr>
 	        		<td>
+	        			{{ field.created_by }}
+	        		</td>
+	        		<td>
 			        	{{ field.reserved_for }}
 		        	</td>
 		        	<td>
 		        		{{ field.time_slot }}
+		        	</td>
+		        	<td>
+		        		{{ field.creation_date }}
 		        	</td>
 		        </tr>
 		        {% endfor %}
