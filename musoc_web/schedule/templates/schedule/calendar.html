@@ -5,9 +5,10 @@
 {% block announce %}
     <div class="jumbotron">
         <h1 class="display-3 mb-4">Calendar!</h1>
-        <p class="lead">You're probably here because you would like to schedule time in the music rehearsal room located
-            at the <strong>Colchester</strong> campus of the <strong>University of Essex</strong>! If you are already a
-            member then click the button to start reserving time!</p>
-        <a class="btn btn-lg btn-primary" href="#" role="button">Login to MuSoc Web &raquo;</a>
+        <p>
+        	{% for field in output %}
+        		{{ field.reserved_for }}
+        	{% endfor %}
+        </p>
     </div>
 {% endblock %}
