@@ -1,4 +1,5 @@
 from django.db import models
+from django.forms import ModelForm
 
 from django.conf import settings
 from colorful.fields import RGBColorField
@@ -14,4 +15,4 @@ class Reservation(models.Model):
     res_color = RGBColorField(default='#5DADE2')
 
     def __str__(self):
-        return self.time_slot
+        return str(self.reserved_for)
