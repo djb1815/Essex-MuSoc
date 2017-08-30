@@ -5,10 +5,25 @@
 {% block announce %}
     <div class="jumbotron">
         <h1 class="display-3 mb-4">Calendar!</h1>
-        <p>
-        	{% for field in output %}
-        		{{ field.reserved_for }}
-        	{% endfor %}
-        </p>
+        <table class="table table-responsive table-striped">
+        	<thead class="thead-inverse">
+	        	<tr>
+	        		<th>Band Name</th>
+	        		<th>Time Slot</th>
+	        	</tr>
+	        </thead>
+	        <tbody>
+	        	{% for field in output %}
+	        	<tr>
+	        		<td>
+			        	{{ field.reserved_for }}
+		        	</td>
+		        	<td>
+		        		{{ field.time_slot }}
+		        	</td>
+		        </tr>
+		        {% endfor %}
+	    	</tbody>
+        </table>
     </div>
 {% endblock %}
