@@ -102,4 +102,7 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+####### added by djb1815
 */.idea/*
+*.pyc
+
