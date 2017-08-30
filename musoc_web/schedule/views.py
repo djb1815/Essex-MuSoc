@@ -10,3 +10,12 @@ def index(request):
         'title': title
     }
     return render(request, "schedule/home.html", custom_variables)
+
+def calendar(request):
+    # Add variables in the custom_variables dict below to make them available within the rendered page
+    title = "Calendar"
+    custom_variables = {
+        'title': title
+    }
+    return render(request, "schedule/calendar.html", custom_variables)
+
