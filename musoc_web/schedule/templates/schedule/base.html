@@ -3,12 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="University of Essex Music Society">
-    <link rel="icon" href="{% static "schedule/img/favicon.ico" %}">
-
+    {% include "schedule/components/base_head.html" %}
     <title>{% block page_title %}MuSoc Web{% endblock %}</title>
 
     <!-- Bootstrap core CSS -->
@@ -21,32 +16,20 @@
 </head>
 
 <body>
-
 {% include "schedule/components/topnav.html" %}
-{% block wave_img %}
-<img src="{% static "schedule/img/MuSoc_wave_crop.jpg" %}" class="img-fluid" alt="MuSoc Logo">
-{% endblock %}
 
-{% block jumbotron %}
-    <div class="jumbotron">
-        <h1>Welcome!</h1>
-        <p class="lead">You're probably here because you would like to schedule time in the music rehearsal room located
-            at the <strong>Colchester</strong> campus of the <strong>University of Essex</strong>! If you are already a
-        member then click the button to start reserving time!</p>
-        <a class="btn btn-lg btn-primary" href="#" role="button">Login to MuSoc Web &raquo;</a>
-    </div>
-{% endblock %}
+<div class="container-fluid baseimg-pad">
 
+    {% block announce %}
+        {#  This space can be used for a Jumbotron (as in home.html) or Page Title  #}
+    {% endblock %}
 
-<div class="container">
-    <blockquote class="blockquote"><p class="mb-0">Practising is the process of taking a task that seems difficult
-        and doing it repeatedly, over days and weeks until you are able to do it well, and easily.</p>
-        <footer class="blockquote-footer">Ron Ottley, Bonetti, Ruth., <cite title="Source Title">Now I Love Music
-            Practice (Amadeus Press, 2003), p.29</cite></footer>
-    </blockquote>
+    {% block content %}
+    {% endblock %}
+
+    {% include "schedule/components/quote_block.html" %}
 
 </div>
-
 
 <!-- Bootstrap core JavaScript
 ================================================== -->
