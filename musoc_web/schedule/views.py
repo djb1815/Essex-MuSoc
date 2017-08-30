@@ -15,11 +15,9 @@ def index(request):
 def calendar(request):
     # Add variables in the custom_variables dict below to make them available within the rendered page
     title = "Calendar"
+    output = Reservation.objects.all()
     custom_variables = {
-        'title': title
+        'title': title,
+        'output': output
     }
     return render(request, "schedule/calendar.html", custom_variables)
-
-def view_table(request):
-    output = Reservation.objects.all()
-    return render(request, 'calendar.html', {'output': output})
