@@ -13,54 +13,37 @@
 <body>
 {% include "schedule/components/topnav.html" %}
 
-<div class="container-fluid baseimg-pad">
+<div class="container-fluid baseimg-pad mt-1">
     {% block body %}
 
         {#    <em>Important: Authentication via OAuth based providers will not work until you <a href="/admin/socialaccount/socialapp/">setup proper applicaton credentials</a>.</em>#}
 
-        {% if messages %}
-            <div>
-                <strong>Messages:</strong>
-                <ul>
-                    {% for message in messages %}
-                        <li>{{ message }}</li>
-                    {% endfor %}
-                </ul>
-            </div>
-        {% endif %}
-
-        <div>
-            <strong>Menu:</strong>
-            <ul>
-                {% if user.is_authenticated %}
-                    <li><a href="{% url 'account_email' %}">Change E-mail</a></li>
-                    <li><a href="{% url 'account_logout' %}">Sign Out</a></li>
-                {% else %}
-                    <li><a href="{% url 'account_login' %}">Sign In</a></li>
-                    <li><a href="{% url 'account_signup' %}">Sign Up</a></li>
-                {% endif %}
-            </ul>
-        </div>
+        {% include "schedule/components/messages.html" %}
 
         {% block content %}
-            <h1>{% trans 'My Account' %}</h1>
+            <div class="container mb-5">
+                <h1>{% trans 'Manage Account' %}</h1>
 
-            <ul class="nav nav-tabs">
-              <li class="{% block account_nav_email %}{% endblock %}">
-                <a href="{% url 'account_email' %}">{% trans 'E-mail Addresses' %}</a>
-              </li>
-              <li class="{% block account_nav_change_password %}{% endblock %}">
-                <a href="{% url 'account_change_password' %}">{% trans 'Change Password' %}</a>
-              </li>
-              {% url 'socialaccount_connections' as connections_url %}
-              {% if connections_url %}
-                  <li class="{% block account_nav_socialaccount_connections %}{% endblock %}">
-                    <a href="{{ connections_url }}">{% trans 'Connected Accounts' %}</a>
-                  </li>
-              {% endif %}
-            </ul>
-            {% block account_content %}
-            {% endblock %}
+                <ul class="nav nav-tabs my-4">
+                    <li class="nav-item">
+                        <a class="nav-link {% block account_nav_email %}{% endblock %}"
+                           href="{% url 'account_email' %}">{% trans 'E-mail Addresses' %}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% block account_nav_change_password %}{% endblock %}"
+                           href="{% url 'account_change_password' %}">{% trans 'Change Password' %}</a>
+                    </li>
+                    {% url 'socialaccount_connections' as connections_url %}
+                    {% if connections_url %}
+                        <li class="nav-item">
+                            <a class="nav-link {% block account_nav_socialaccount_connections %}{% endblock %}"
+                               href="{{ connections_url }}">{% trans 'Connected Accounts' %}</a>
+                        </li>
+                    {% endif %}
+                </ul>
+                {% block account_content %}
+                {% endblock %}
+            </div>
         {% endblock %}
 
     {% endblock %}

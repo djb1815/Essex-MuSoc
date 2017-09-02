@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
+from django.contrib.messages import constants as messages
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -44,6 +46,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'colorful',
+    'crispy_forms',
     # MuSoc apps
     'schedule.apps.ScheduleConfig',
 ]
@@ -135,6 +138,19 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Custom Django message tags to allow for easier interaction with Bootstrap alert components
+# https://docs.djangoproject.com/en/1.11/ref/settings/#std:setting-MESSAGE_TAGS
+MESSAGE_TAGS = {
+    messages.DEBUG: 'alert-info',
+    messages.INFO: 'alert-info',
+    messages.SUCCESS: 'alert-success',
+    messages.WARNING: 'alert-warning',
+    messages.ERROR: 'alert-danger',
+}
+
+# Crispy Forms settings
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # Site must be defined for AllAuth
 SITE_ID = 2
