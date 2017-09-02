@@ -139,6 +139,9 @@ STATIC_URL = '/static/'
 # Site must be defined for AllAuth
 SITE_ID = 2
 
+# Temp setting to send emails to console
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 # Redirect to this page after login
 LOGIN_REDIRECT_URL = '/'
 
