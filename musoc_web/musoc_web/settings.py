@@ -153,7 +153,7 @@ MESSAGE_TAGS = {
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # Site must be defined for AllAuth
-SITE_ID = 2
+SITE_ID = 3
 
 # Temp setting to send emails to console
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
