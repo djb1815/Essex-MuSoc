@@ -25,7 +25,7 @@
         </ul>
         {% if user.is_authenticated %}
             <span class="navbar-text mr-3">
-                Logged in as <strong class="text-light">{{ user }}</strong>
+                Logged in as <strong class="text-light">{{ user.first_name }}</strong>
             </span>
             <div>
                 <a role="button" class="btn btn-outline-secondary my-2 my-sm-0" href="{% url 'profile' %}">Manage Account</a>
