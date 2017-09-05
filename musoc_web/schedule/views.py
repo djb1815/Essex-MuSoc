@@ -26,10 +26,10 @@ def profile(request):
         if name_form.is_valid() and detail_form.is_valid():
             name_form.save()
             detail_form.save()
-            messages.success(request, _('Your profile has been successfully updated!'))
-            return redirect('settings:profile')
+            messages.success(request, 'Your profile has been successfully updated!')
+            return redirect('profile')
         else:
-            messages.error(request, _('Please correct the error below.'))
+            messages.error(request, 'Please correct the error below.')
     else:
         name_form = ProfileNameForm(instance=request.user)
         detail_form = ProfileDetailForm(instance=request.user.profile)
