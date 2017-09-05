@@ -16,10 +16,12 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.http import HttpResponseRedirect
 from django.contrib import admin
+from schedule import views
 
 urlpatterns = [
     url(r'^schedule/', include('schedule.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^accounts/', include('allauth.urls')),
+    url(r'^accounts/profile/', views.profile, name='profile'),
     url(r'^$', lambda r: HttpResponseRedirect('schedule/')),
 ]

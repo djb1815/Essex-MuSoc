@@ -10,3 +10,11 @@ def index(request):
         'title': title
     }
     return render(request, "schedule/home.html", custom_variables)
+
+
+def profile(request):
+    title = "Account Settings"
+    custom_variables = {
+        'title': title
+    }
+    return render(request, "account/profile.html", custom_variables)

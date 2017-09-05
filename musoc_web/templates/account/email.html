@@ -42,12 +42,12 @@
                                 </td>
                                 <td>
                                     {% if emailaddress.verified %}
-                                        <span class="label label-info">{% trans "Verified" %}</span>
+                                        <span class="badge badge-info">{% trans "Verified" %}</span>
                                     {% else %}
-                                        <span class="label label-warning">{% trans "Unverified" %}</span>
+                                        <span class="badge badge-warning">{% trans "Unverified" %}</span>
                                     {% endif %}
                                     {% if emailaddress.primary %}
-                                        <span class="label label-success">{% trans "Primary" %}</span>{% endif %}
+                                        <span class="badge badge-primary">{% trans "Primary" %}</span>{% endif %}
                                 </td>
                             </tr>
                         {% endfor %}
@@ -57,7 +57,8 @@
                     <div class="form-actions">
                         <button class="btn btn-primary" type="submit"
                                 name="action_primary">{% trans 'Make Primary' %}</button>
-                        <button class="btn btn-secondary" type="submit" name="action_send">{% trans 'Re-send Verification' %}</button>
+                        <button class="btn btn-secondary" type="submit"
+                                name="action_send">{% trans 'Re-send Verification' %}</button>
                         <button class="btn btn-danger" type="submit" name="action_remove">{% trans 'Remove' %}</button>
                     </div>
 
@@ -74,14 +75,18 @@
         </div>
 
         <div class="col-md-4">
-            <h4>{% trans "Add E-mail Address" %}</h4>
+            <div class="card">
+                <h4 class="card-header">{% trans "Add E-mail Address" %}</h4>
+                <div class="card-body">
+                    <form method="post" action="">
+                        {% csrf_token %}
+                        {{ add_email_form|crispy }}
 
-            <form method="post" action="">
-                {% csrf_token %}
-                {{ add_email_form|crispy }}
-
-                    <button class="btn btn-primary" name="action_add" type="submit">{% trans "Add E-mail" %}</button>
-            </form>
+                        <button class="btn btn-primary btn-block" name="action_add"
+                                type="submit">{% trans "Add E-mail" %}</button>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 
