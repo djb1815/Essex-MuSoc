@@ -11,7 +11,8 @@
         <div class="col-md-8 col-sm-10">
             <form method="POST" action="" class="profile_update">
                 {% csrf_token %}
-                {{ profile_update_form|crispy }}
+                {{ name_form|crispy }}
+                {{ detail_form|crispy }}
                 <div class="form-actions">
                     <button class="btn btn-primary btn-block" type="submit"
                             name="action">{% trans "Update Profile" %}</button>
