@@ -5,6 +5,27 @@
 {% block announce %}
     <div class="jumbotron">
         <h1 class="display-3 mb-4">Calendar!</h1>
+        <h3>{{ month }} {{ year }}</h3>
+        <table>
+        	<tbody>
+        		<tr>
+        			{% for i in daysInWeek %}
+        			<td>
+        				{{ i }}
+        			</td>
+        			{% endfor %}
+        		</tr>
+        		<tr>
+        			{% for j in daysInWeek2 %}
+        			<td>
+        				{{ j }}
+        			</td>
+        			{% endfor %}
+        		</tr>
+        	</tbody>
+        </table>
+
+        <!-- This code displays booking info
         <table class="table table-responsive table-striped">
         	<thead class="thead-inverse">
 	        	<tr>
@@ -33,5 +54,6 @@
 		        {% endfor %}
 	    	</tbody>
         </table>
+    	-->
     </div>
 {% endblock %}
