@@ -1,5 +1,5 @@
 from .booking_mgmt import MuSocDiary
-
+import datetime
 from django.shortcuts import render
 from .models import Reservation
 
@@ -21,14 +21,16 @@ def calendar(request):
     output = Reservation.objects.all()
     year = MuSocDiary.current_year
     month = MuSocDiary.current_month
-    day =  MuSocDiary.current_date_num
+    day =  datetime.datetime.date(datetime.datetime.now())
     daysInWeek = []
     for i in range(7):
-        daysInWeek.append(day+i)
+        dayNum = day + datetime.timedelta(days=i)
+        daysInWeek.append(dayNum.day)
 
-    daysInWeek2 = [daysInWeek[6]+1]
-    for i in range(1,7):
-        daysInWeek2.append(daysInWeek2[0]+i)
+    daysInWeek2 = []
+    for i in range(7,14):
+        dayNum = day + datetime.timedelta(days=i)
+        daysInWeek2.append(dayNum.day)
 
     custom_variables = {
         'title': title,

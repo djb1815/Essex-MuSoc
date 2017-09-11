@@ -7,5 +7,4 @@ class MuSocDiary():
 	now = re.split('-', str(today))
 	current = int(now[1])
 	current_month = months[current-1]
-	current_date_num = int(re.sub('\A0', '', now[2]))
-	current_year = int(now[0])
+	current_year = today.year

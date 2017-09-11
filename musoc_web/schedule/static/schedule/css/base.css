@@ -7,8 +7,12 @@ body {
   padding-top: 1rem;
 }
 
-.table.table-responsive.table-striped {
+.table {
+	
+}
 
+.table.table-responsive.table-striped {
+  
 }
 
 .thead-inverse {
