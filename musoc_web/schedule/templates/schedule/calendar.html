@@ -6,19 +6,25 @@
     <div class="jumbotron">
         <h1 class="display-3 mb-4">Calendar!</h1>
         <h3>{{ month }} {{ year }}</h3>
-        <table class="table" style="border-collapse: seperate;">
+        <table class="table">
         	<tbody>
         		<tr>
         			{% for i in daysInWeek %}
-        			<td height="100px" align="right" class="border border-dark" style="font-size: 10px; vertical-align: bottom;">
-        				{{ i }}
+        			<td height="100px" class="border border-dark" style="vertical-align: bottom;">
+                        <a class="btn btn-lg btn-primary" href="#" role="button">Times&raquo;</a>
+        				<div align="right" style="font-size: 10px; font-weight: bold;">
+                            {{ i }}
+                        </div>
         			</td>
         			{% endfor %}
         		</tr>
         		<tr>
         			{% for j in daysInWeek2 %}
-        			<td height="100px" align="right" class="border border-dark" style="font-size: 10px; vertical-align: bottom;">
-        				{{ j }}
+        			<td height="100px" class="border border-dark" style="vertical-align: bottom;">
+                        <a class="btn btn-lg btn-primary" href="#" role="button">Times&raquo;</a>
+                        <div align="right" style="font-size: 10px; font-weight: bold;">
+        				    {{ j }}
+                        </div>
         			</td>
         			{% endfor %}
         		</tr>

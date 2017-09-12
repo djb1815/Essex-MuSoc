@@ -1,5 +1,6 @@
-from .booking_mgmt import MuSocDiary
 import datetime
+
+from .booking_mgmt import MuSocDiary
 from django.shortcuts import render
 from .models import Reservation
 
