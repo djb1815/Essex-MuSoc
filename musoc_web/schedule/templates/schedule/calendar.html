@@ -2,8 +2,6 @@
 
 {% block page_title %}{{ title }} | {{ block.super }}{% endblock %}
 
-{% load multifor %}
-
 {% block announce %}
     <div class="jumbotron">
         <h1 class="display-4 mb-4">Calendar!</h1>
@@ -22,11 +20,18 @@
                         <div class="card-body">
                             <table class="table table-responsive">
                                 <tbody>
+                                    <tr>
+                                        {% for i in dayNames %}
+                                        <th>
+                                            {{ i }}
+                                        </th>
+                                        {% endfor %}
+                                    </tr>
                             		<tr>
-                            			{% for i in daysInWeek; j in dayNames %}
+                            			{% for i in daysInWeek %}
                             			<td class="border border-dark">
                             				<div align="right" style="font-size: 10px; font-weight: bold;">
-                                                {{ i }}:{{ j }}
+                                                {{ i }}
                                             </div>
                                             <table class="table">
                                                 <tbody>
@@ -60,6 +65,13 @@
                         <div class="card-body">
                             <table class="table table-responsive">
                                 <tbody>
+                                    <tr>
+                                        {% for i in dayNames %}
+                                        <th>
+                                            {{ i }}
+                                        </th>
+                                        {% endfor %}
+                                    </tr>
                             		<tr>
                             			{% for j in daysInWeek2 %}
                             			<td class="border border-dark">
