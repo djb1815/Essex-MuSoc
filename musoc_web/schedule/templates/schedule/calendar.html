@@ -2,34 +2,92 @@
 
 {% block page_title %}{{ title }} | {{ block.super }}{% endblock %}
 
+{% load multifor %}
+
 {% block announce %}
     <div class="jumbotron">
-        <h1 class="display-3 mb-4">Calendar!</h1>
+        <h1 class="display-4 mb-4">Calendar!</h1>
         <h3>{{ month }} {{ year }}</h3>
-        <table class="table table-responsive">
-        	<tbody>
-        		<tr>
-        			{% for i in daysInWeek %}
-        			<td height="100px" class="border border-dark" style="vertical-align: bottom;">
-                        <a class="btn btn-lg btn-primary" href="#" role="button">Times&raquo;</a>
-        				<div align="right" style="font-size: 10px; font-weight: bold;">
-                            {{ i }}
+            <div id="weekAccordion" role="tablist">
+                <div class="card">
+                    <div class="card-header" role="tab" id="headingOne">
+                        <h5 class="mb-0">
+                            <a data-toggle="collapse" href="#weekOne" aria-expanded="false" aria-controls="weekOne">
+                                Week 1
+                            </a>
+                        </h5>
+                    </div>
+
+                    <div id="weekOne" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="weekAccordion">
+                        <div class="card-body">
+                            <table class="table table-responsive">
+                                <tbody>
+                            		<tr>
+                            			{% for i in daysInWeek; j in dayNames %}
+                            			<td class="border border-dark">
+                            				<div align="right" style="font-size: 10px; font-weight: bold;">
+                                                {{ i }}:{{ j }}
+                                            </div>
+                                            <table class="table">
+                                                <tbody>
+                                                    {% for l in bookingHours %}
+                                                    <tr>
+                                                        <td>
+                                                            {{ l }}
+                                                        </td>
+                                                    </tr>
+                                                    {% endfor %}
+                                                </tbody>
+                                            </table>
+                            			</td>
+                            			{% endfor %}
+                            		</tr>
+                                </tbody>
+                            </table>
                         </div>
-        			</td>
-        			{% endfor %}
-        		</tr>
-        		<tr>
-        			{% for j in daysInWeek2 %}
-        			<td height="100px" class="border border-dark" style="vertical-align: bottom;">
-                        <a class="btn btn-lg btn-primary" href="#" role="button">Times&raquo;</a>
-                        <div align="right" style="font-size: 10px; font-weight: bold;">
-        				    {{ j }}
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" role="tab" id="headingTwo">
+                        <h5 class="mb-0">
+                            <a data-toggle="collapse" href="#weekTwo" aria-expanded="false" aria-controls="weekTwo">
+                                Week 2
+                            </a>
+                        </h5>
+                    </div>
+
+                    <div id="weekTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="weekAccordion">
+                        <div class="card-body">
+                            <table class="table table-responsive">
+                                <tbody>
+                            		<tr>
+                            			{% for j in daysInWeek2 %}
+                            			<td class="border border-dark">
+                                            <div align="right" style="font-size: 10px; font-weight: bold;">
+                            				    {{ j }}
+                                            </div>
+                                            <table class="table">
+                                                <tbody>
+                                                    {% for l in bookingHours %}
+                                                    <tr>
+                                                        <td>
+                                                            {{ l }}
+                                                        </td>
+                                                    </tr>
+                                                    {% endfor %}
+                                                </tbody>
+                                            </table>
+                            			</td>
+                            			{% endfor %}
+                            		</tr>
+                                </tbody>
+                            </table>
                         </div>
-        			</td>
-        			{% endfor %}
-        		</tr>
-        	</tbody>
-        </table>
+                    </div>
+                </div>
+            </div>
+        	
+        
 
         <!-- This code displays booking info
         <table class="table table-responsive table-striped">

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # Third-party apps
     'colorful',
+    'multiforloop',
     # MuSoc apps
     'schedule.apps.ScheduleConfig',
 ]

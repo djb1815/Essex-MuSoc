@@ -1,5 +1,3 @@
-import datetime
-
 from .booking_mgmt import MuSocDiary
 from django.shortcuts import render
 from .models import Reservation
@@ -22,16 +20,11 @@ def calendar(request):
     output = Reservation.objects.all()
     year = MuSocDiary.current_year
     month = MuSocDiary.current_month
-    day =  datetime.datetime.date(datetime.datetime.now())
-    daysInWeek = []
-    for i in range(7):
-        dayNum = day + datetime.timedelta(days=i)
-        daysInWeek.append(dayNum.day)
-
-    daysInWeek2 = []
-    for i in range(7,14):
-        dayNum = day + datetime.timedelta(days=i)
-        daysInWeek2.append(dayNum.day)
+    day =  MuSocDiary.today
+    dayNames = MuSocDiary.dayNameIter()
+    daysInWeek = MuSocDiary.daysInWeek()
+    daysInWeek2 = MuSocDiary.daysInWeek2()
+    bookingHours = MuSocDiary.bookingHours
 
     custom_variables = {
         'title': title,
@@ -39,7 +32,9 @@ def calendar(request):
         'year': year,
         'month': month,
         'day': day,
+        'dayNames': dayNames,
         'daysInWeek': daysInWeek,
-        'daysInWeek2': daysInWeek2
+        'daysInWeek2': daysInWeek2,
+        'bookingHours': bookingHours
     }
     return render(request, "schedule/calendar.html", custom_variables)
