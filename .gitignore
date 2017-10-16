@@ -106,4 +106,8 @@ $RECYCLE.BIN/
 */.idea/*
 *.pyc
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
 *.sqlite3
