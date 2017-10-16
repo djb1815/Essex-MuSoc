@@ -1,15 +1,10 @@
-<<<<<<< HEAD
 from .booking_mgmt import MuSocDiary
-from django.shortcuts import render
 from .models import Reservation
-
-=======
 from django.shortcuts import render, redirect
 from django.db import transaction
 from django.contrib.auth.decorators import login_required
 from .forms import ProfileNameForm, ProfileDetailForm
 from django.contrib import messages
->>>>>>> master
 
 # Create your views here.
 
@@ -22,7 +17,6 @@ def index(request):
     }
     return render(request, "schedule/home.html", custom_variables)
 
-<<<<<<< HEAD
 def calendar(request):
     # Add variables in the custom_variables dict below to make them available within the rendered page
     title = "Calendar"
@@ -47,7 +41,6 @@ def calendar(request):
         'bookingHours': bookingHours
     }
     return render(request, "schedule/calendar.html", custom_variables)
-=======
 
 @login_required
 @transaction.atomic
@@ -72,4 +65,3 @@ def profile(request):
         'detail_form': detail_form
     }
     return render(request, "account/profile.html", custom_variables)
->>>>>>> master

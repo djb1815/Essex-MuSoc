@@ -17,10 +17,7 @@ class Reservation(models.Model):
     res_color = RGBColorField(default='#5DADE2')
 
     def __str__(self):
-<<<<<<< HEAD
         return str(self.reserved_for)
-=======
-        return self.time_slot
 
 
 class UserProfile(models.Model):
@@ -38,4 +35,3 @@ def create_or_update_user_profile(sender, instance, created, **kwargs):
     if created:
         UserProfile.objects.create(user=instance)
     instance.profile.save()
->>>>>>> master
